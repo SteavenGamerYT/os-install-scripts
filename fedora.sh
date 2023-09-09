@@ -44,8 +44,8 @@ flatpak install -y flathub org.libreoffice.LibreOffice com.github.tchx84.Flatsea
 # Install Beta version of GIMP. It performs better than the stable one, plus better Wayland support.
 flatpak install -y flathub-beta org.gimp.GIMP
 
-# APT
-sudo dnf install distrobox podman yt-dlp zsh zsh-syntax-highlighting autojump zsh-autosuggestions neofetch xclip lolcat git trash-cli nautilus-nextcloud nala ssh adw-gtk3-theme -y
+# dnf
+sudo dnf install distrobox podman yt-dlp zsh zsh-syntax-highlighting autojump zsh-autosuggestions neofetch xclip lolcat git trash-cli nextcloud-client openssh-server adw-gtk3-theme -y
 
 # Fixing Flatpak permsision Issues
 sudo flatpak override --filesystem=~/.themes
