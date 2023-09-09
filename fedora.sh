@@ -28,7 +28,7 @@ echo "system-db:local" | sudo tee -a /etc/dconf/profile/user
 echo "[org/gnome/mutter]" | sudo tee -a /etc/dconf/db/local.d/00-hidpi
 echo "experimental-features=['scale-monitor-framebuffer']" | sudo tee -a /etc/dconf/db/local.d/00-hidpi
 echo "/org/gnome/mutter/experimental-features" | sudo tee -a /etc/dconf/db/locks/hidpi
-dconf updateue
+dconf update
 gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 
@@ -38,7 +38,7 @@ sudo fedora-third-party refresh
 flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 
 # Install things I need, top is uncategorized
-flatpak install -y flathub org.libreoffice.LibreOffice com.github.tchx84.Flatseal org.kde.krita org.mozilla.firefox com.brave.Browser  org.mozilla.Thunderbird com.vysp3r.ProtonPlus com.heroicgameslauncher.hgl com.valvesoftware.Steam org.gnome.Loupe org.freedesktop.Platform.VulkanLayer.OBSVkCapture com.obsproject.Studio.Plugin.OBSVkCapture com.obsproject.Studio runtime/org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/21.08 runtime/org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/22.08 com.discordapp.Discord com.github.Matoking.protontricks com.ktechpit.whatsie  com.visualstudio.code im.riot.Riot io.github.shiftey.Desktop io.gitlab.jstest_gtk.jstest_gtk io.gitlab.news_flash.NewsFlash net.lutris.Lutris org.DolphinEmu.dolphin-emu org.atheme.audacious	 org.gnome.gitlab.cheywood.Iotas org.kde.kdenlive org.onlyoffice.desktopeditors org.prismlauncher.PrismLauncher org.qbittorrent.qBittorrent org.telegram.desktop org.videolan.VLC org.yuzu_emu.yuzu
+flatpak install -y flathub org.libreoffice.LibreOffice com.github.tchx84.Flatseal org.kde.krita org.mozilla.firefox com.brave.Browser  org.mozilla.Thunderbird com.vysp3r.ProtonPlus com.heroicgameslauncher.hgl com.valvesoftware.Steam org.gnome.Loupe org.freedesktop.Platform.VulkanLayer.OBSVkCapture com.obsproject.Studio.Plugin.OBSVkCapture com.obsproject.Studio runtime/org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/21.08 runtime/org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/22.08 com.discordapp.Discord com.github.Matoking.protontricks com.ktechpit.whatsie  com.visualstudio.code im.riot.Riot io.github.shiftey.Desktop io.gitlab.jstest_gtk.jstest_gtk io.gitlab.news_flash.NewsFlash net.lutris.Lutris org.DolphinEmu.dolphin-emu org.atheme.audacious	 org.gnome.gitlab.cheywood.Iotas org.kde.kdenlive org.onlyoffice.desktopeditors org.prismlauncher.PrismLauncher org.qbittorrent.qBittorrent org.telegram.desktop org.videolan.VLC org.yuzu_emu.yuzu org.gnome.Calculator org.gnome.Calendar org.gnome.Characters org.gnome.Cheese
 
 # Install Beta version of GIMP. It performs better than the stable one, plus better Wayland support.
 flatpak install -y flathub-beta org.gimp.GIMP
