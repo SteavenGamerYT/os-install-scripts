@@ -67,5 +67,10 @@ sudo dnf remove firewalld* -y
 sudo dnf install ufw -y
 sudo ufw allow ssh
 sudo ufw enable 
+
+# Arduino
+echo "SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", GROUP="plugdev", MODE="0666"" | sudo tee -a /etc/udev/rules.d/99-arduino.rules
+sudo usermod -a -G dialout $USER
+
 echo "The configuration is now complete."
 
