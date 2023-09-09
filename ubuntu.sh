@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Debloat
-sudo apt purge libreoffice* eog -y
+sudo apt purge libreoffice* eog network-manager-openvpn-gnome network-manager-openvpn openvpn -y
 sudo snap remove snap-store
 sudo apt autoremove --purge -y
 
