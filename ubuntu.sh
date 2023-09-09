@@ -26,7 +26,7 @@ flatpak install -y flathub org.libreoffice.LibreOffice com.github.tchx84.Flatsea
 flatpak install -y flathub-beta org.gimp.GIMP
 
 # APT
-sudo apt install distrobox podman yt-dlp zsh zsh-syntax-highlighting autojump zsh-autosuggestions neofetch xclip lolcat git trash-cli nautilus-nextcloud nala ssh -y
+sudo apt install distrobox podman yt-dlp zsh zsh-syntax-highlighting autojump zsh-autosuggestions neofetch xclip lolcat git trash-cli nautilus-nextcloud nala ssh gnome-tweaks -y
 
 # Fixing Flatpak permsision Issues
 sudo flatpak override --filesystem=~/.themes
