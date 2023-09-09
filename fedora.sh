@@ -46,7 +46,7 @@ flatpak install -y flathub org.libreoffice.LibreOffice com.github.tchx84.Flatsea
 flatpak install -y flathub-beta org.gimp.GIMP
 
 # dnf
-sudo dnf install distrobox podman yt-dlp zsh zsh-syntax-highlighting autojump zsh-autosuggestions neofetch xclip lolcat git trash-cli nextcloud-client openssh-server adw-gtk3-theme gnome-tweaks -y
+sudo dnf install distrobox podman yt-dlp zsh zsh-syntax-highlighting autojump zsh-autosuggestions neofetch xclip lolcat git trash-cli nextcloud-client openssh-server adw-gtk3-theme gnome-tweaks ostree libappstream-glib -y
 # Fedora Copr Repos for more apps
 sudo dnf copr enable gombosg/better_fonts -y
 sudo dnf install fontconfig-font-replacements fontconfig-enhanced-defaults -y
@@ -63,6 +63,8 @@ sudo flatpak override --filesystem=xdg-config/qt6ct:ro
 sudo flatpak override --filesystem=xdg-config/Kvantum:ro
 sudo flatpak override --filesystem=xdg-config/fontconfig:ro
 sudo flatpak override --filesystem=xdg-config/MangoHud:ro
+sudo flatpak override --filesystem=/usr/share/themes
+sudo flatpak override --filesystem=/usr/share/icons
 
 # Firewall
 sudo dnf remove firewalld* -y
