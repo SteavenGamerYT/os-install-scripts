@@ -33,8 +33,11 @@ gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,m
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 
 # Setup Flathub beta and third party packages
+sudo dnf remove flatpak -y
+sudo dnf install flatpak -y
 sudo fedora-third-party enable
 sudo fedora-third-party refresh
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 
 # Install things I need, top is uncategorized
