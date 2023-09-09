@@ -44,6 +44,23 @@ sudo apt install ufw -y
 sudo ufw allow ssh
 sudo ufw enable 
 
+# Enable Kicksecure CPU mitigations
+sudo curl https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/default/grub.d/40_cpu_mitigations.cfg -o /etc/grub.d/40_cpu_mitigations.cfg
+# Kicksecure's CPU distrust script
+sudo curl https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/default/grub.d/40_distrust_cpu.cfg -o /etc/grub.d/40_distrust_cpu.cfg
+# Enable Kicksecure's IOMMU patch (limits DMA)
+sudo curl https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/default/grub.d/40_enable_iommu.cfg -o /etc/grub.d/40_enable_iommu.cfg
+
+# GrapheneOS's ssh limits
+# caps the system usage of sshd
+sudo mkdir -p /etc/systemd/system/sshd.service.d
+sudo curl https://raw.githubusercontent.com/GrapheneOS/infrastructure/main/systemd/system/sshd.service.d/local.conf -o /etc/systemd/system/sshd.service.d/local.conf
+
+# NTS instead of NTP
+# NTS is a more secured version of NTP
+sudo curl https://raw.githubusercontent.com/GrapheneOS/infrastructure/main/chrony.conf -o /etc/chrony.conf
+
+
 # Arduino
 echo "SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", GROUP="plugdev", MODE="0666"" | sudo tee -a /etc/udev/rules.d/99-arduino.rules
 sudo usermod -a -G dialout $USER
