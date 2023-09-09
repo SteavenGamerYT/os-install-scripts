@@ -28,13 +28,11 @@ echo "system-db:local" | sudo tee -a /etc/dconf/profile/user
 echo "[org/gnome/mutter]" | sudo tee -a /etc/dconf/db/local.d/00-hidpi
 echo "experimental-features=['scale-monitor-framebuffer']" | sudo tee -a /etc/dconf/db/local.d/00-hidpi
 echo "/org/gnome/mutter/experimental-features" | sudo tee -a /etc/dconf/db/locks/hidpi
-dconf update
+sudo dconf update
 gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 
 # Setup Flathub beta and third party packages
-sudo dnf remove flatpak -y
-sudo dnf install flatpak -y
 sudo fedora-third-party enable
 sudo fedora-third-party refresh
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
@@ -47,7 +45,7 @@ flatpak install -y flathub org.libreoffice.LibreOffice com.github.tchx84.Flatsea
 flatpak install -y flathub-beta org.gimp.GIMP
 
 # APT
-sudo dnf install distrobox podman yt-dlp zsh zsh-syntax-highlighting autojump zsh-autosuggestions neofetch xclip lolcat git trash-cli nautilus-nextcloud nala ssh -y
+sudo dnf install distrobox podman yt-dlp zsh zsh-syntax-highlighting autojump zsh-autosuggestions neofetch xclip lolcat git trash-cli nautilus-nextcloud nala ssh adw-gtk3-theme -y
 
 # Fixing Flatpak permsision Issues
 sudo flatpak override --filesystem=~/.themes
