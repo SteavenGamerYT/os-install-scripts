@@ -50,6 +50,8 @@ sudo dnf install distrobox podman yt-dlp zsh zsh-syntax-highlighting autojump zs
 # Fedora Copr Repos for more apps
 sudo dnf copr enable gombosg/better_fonts -y
 sudo dnf install fontconfig-font-replacements fontconfig-enhanced-defaults -y
+sudo dnf copr enable atim/starship -y
+sudo dnf install starship -y
 
 # Fixing Flatpak permsision Issues
 sudo flatpak override --filesystem=~/.themes
