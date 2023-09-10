@@ -32,9 +32,11 @@ sudo dconf update
 gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 
-# Setup Flathub beta and third party packages
+# Setup Flatpak and Snaps and third party packages
 sudo fedora-third-party enable
 sudo fedora-third-party refresh
+sudo dnf install flatpak snapd -y
+sudo ln -s /var/lib/snapd/snap /snap
 flatpak remote-delete fedora
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
@@ -52,6 +54,9 @@ sudo dnf copr enable gombosg/better_fonts -y
 sudo dnf install fontconfig-font-replacements fontconfig-enhanced-defaults -y
 sudo dnf copr enable atim/starship -y
 sudo dnf install starship -y
+
+# Snaps
+sudo snap install yt-dlp
 
 # Fixing Flatpak permsision Issues
 sudo flatpak override --filesystem=~/.themes
