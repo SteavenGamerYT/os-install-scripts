@@ -68,4 +68,8 @@ sudo curl https://raw.githubusercontent.com/GrapheneOS/infrastructure/main/chron
 echo "SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", GROUP="plugdev", MODE="0666"" | sudo tee -a /etc/udev/rules.d/99-arduino.rules
 sudo usermod -a -G dialout $USER
 
+# Sunshine
+echo 'KERNEL=="uinput", SUBSYSTEM=="misc", OPTIONS+="static_node=uinput", TAG+="uaccess"' | \
+sudo tee /etc/udev/rules.d/85-sunshine.rules
+
 echo "The configuration is now complete."
