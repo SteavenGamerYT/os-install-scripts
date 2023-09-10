@@ -8,7 +8,7 @@ sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-rel
 sudo dnf groupupdate core -y
 
 # Debloat
-sudo dnf remove -y anaconda* abrt* anthy-unicode avahi bluez-cups brasero-libs trousers boost-date-time yelp orca fedora-bookmarks fedora-chromium-config mailcap open-vm-tools samba-client unbound-libs yajl mediawriter firefox sane* perl* thermald NetworkManager-ssh sos kpartx dos2unix sssd cyrus-sasl-plain geolite2* traceroute gnome-themes-extra ModemManager tcpdump mozilla-filesystem nmap-ncat spice-vdagent eog gnome-text-editorevince cheese gnome-classic-session baobab gnome-calculator gnome-characters gnome-font-viewer gnome-font-viewer simple-scan evince-djvu gnome-tour gnome-shell-extension* gnome-weather gnome-boxes gnome-clocks gnome-contacts gnome-tour gnome-logs gnome-remote-desktop totem gnome-calendar gnome-shell-extension-background-logo gnome-maps gnome-backgrounds gnome-connections gnome-user-docs gnome-color-manager perl-IO-Socket-SSL adcli mtr realmd teamd vpnc openconnect openvpn ppp pptp qgnomeplatform rsync xorg-x11-drv-vmware hyperv* virtualbox-guest-additions qemu-guest-agent 
+sudo dnf -y remove anaconda* abrt* anthy-unicode bluez-cups brasero-libs trousers boost-date-time yelp orca fedora-bookmarks fedora-chromium-config mailcap open-vm-tools samba-client unbound-libs mediawriter firefox thermald NetworkManager-ssh sos kpartx dos2unix sssd cyrus-sasl-plain geolite2* traceroute gnome-themes-extra ModemManager tcpdump mozilla-filesystem nmap-ncat spice-vdagent eog gnome-text-editor evince cheese gnome-classic-session baobab gnome-calculator gnome-characters gnome-font-viewer gnome-font-viewer simple-scan evince-djvu gnome-tour gnome-shell-extension* gnome-weather gnome-boxes gnome-clocks gnome-contacts gnome-tour gnome-logs gnome-remote-desktop totem gnome-calendar gnome-shell-extension-background-logo gnome-maps gnome-backgrounds gnome-connections gnome-user-docs gnome-color-manager perl-IO-Socket-SSL adcli mtr realmd teamd vpnc openconnect openvpn ppp pptp qgnomeplatform rsync xorg-x11-drv-vmware hyperv* virtualbox-guest-additions qemu-guest-agent 
 sudo dnf autoremove -y
 
 # Run Updates
@@ -46,7 +46,7 @@ flatpak install -y flathub org.libreoffice.LibreOffice com.github.tchx84.Flatsea
 flatpak install -y flathub-beta org.gimp.GIMP
 
 # dnf
-sudo dnf install distrobox podman yt-dlp zsh zsh-syntax-highlighting autojump zsh-autosuggestions neofetch xclip lolcat git trash-cli nextcloud-client openssh-server adw-gtk3-theme gnome-tweaks ostree libappstream-glib -y
+sudo dnf install distrobox podman yt-dlp zsh zsh-syntax-highlighting autojump zsh-autosuggestions neofetch xclip lolcat git trash-cli nextcloud-client openssh-server adw-gtk3-theme gnome-tweaks ostree libappstream-glib hplip hplip-gui -y
 # Fedora Copr Repos for more apps
 sudo dnf copr enable gombosg/better_fonts -y
 sudo dnf install fontconfig-font-replacements fontconfig-enhanced-defaults -y
