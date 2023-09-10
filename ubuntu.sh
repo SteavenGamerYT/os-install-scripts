@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Debloat
-sudo apt purge libreoffice* eog network-manager-openvpn-gnome network-manager-openvpn openvpn gnome-calculator gnome-calendar gnome-characters cheese rhythmbox* remmina* transmission* shotwell* gnome-shell-extensions gnome-shell-extension-manager vim* gnome-user-docs gnome-sudoku simple-scan evince* gnome-text-editor gnome-logs  gnome-remote-desktop gnome-mahjongg gnome-font-viewer -y
+sudo apt purge libreoffice* eog network-manager-openvpn-gnome network-manager-openvpn openvpn gnome-calculator gnome-calendar gnome-characters cheese rhythmbox* remmina* transmission* shotwell* gnome-shell-extensions gnome-shell-extension-manager vim* gnome-user-docs gnome-sudoku simple-scan evince* gnome-text-editor gnome-logs  gnome-remote-desktop gnome-mahjongg gnome-font-viewer ubuntu-docs  ubuntu-report -y
 sudo snap remove snap-store
 sudo apt autoremove --purge -y
 
