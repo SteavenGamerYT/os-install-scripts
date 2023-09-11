@@ -1,8 +1,6 @@
 echo Debloat
 powershell -command "Get-AppxPackage "Microsoft.People* | Remove-AppxPackage"
-powershell -command "Get-AppxPackage *xbox* | Remove-AppxPackage"
 powershell -command "Get-AppxPackage *bingweather* | Remove-AppxPackage"
-powershell -command "Get-AppxPackage *photos* | Remove-AppxPackage"
 powershell -command "Get-AppxPackage *bingsports* | Remove-AppxPackage"
 powershell -command "Get-AppxPackage *zunevideo* | Remove-AppxPackage"
 powershell -command "Get-AppxPackage *onenote* | Remove-AppxPackage"
@@ -32,11 +30,15 @@ winget install -e --id OBSProject.OBSStudio
 winget install -e --id KDE.Kdenlive
 winget install -e --id GIMP.GIMP.Nightly
 winget install -e --id KDE.Krita
+winget install -e --id Parsec.Parsec
+winget install -e --id MoonlightGameStreamingProject.Moonlight
+winget install -e --id LizardByte.Sunshine
 
 echo Choco
 powershell -command "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))"
 choco install mpv.install winaero-tweaker.install vcredist2005 vcredist2008 vcredist2010  vcredist2012 msvisualcplusplus2012-redist vcredist2013 vcredist2017 vcredist140 vcredist-all adoptopenjdk8openj9jre adoptopenjdk11openj9jre directx netfx-4.8.1 -y
-
+echo Wsl
+wsl --install
 echo Tweaks
 echo Disabling Web Search and Cortana
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v "AllowCortana" /t REG_DWORD /d "0" /f> nul
