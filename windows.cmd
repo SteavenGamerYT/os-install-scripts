@@ -1,11 +1,38 @@
 echo Debloat
-powershell -command "Get-AppxPackage "Microsoft.People* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.People* | Remove-AppxPackage"
 powershell -command "Get-AppxPackage *bingweather* | Remove-AppxPackage"
 powershell -command "Get-AppxPackage *bingsports* | Remove-AppxPackage"
 powershell -command "Get-AppxPackage *zunevideo* | Remove-AppxPackage"
 powershell -command "Get-AppxPackage *onenote* | Remove-AppxPackage"
 powershell -command "Get-AppxPackage *windowscommunicationsapps* | Remove-AppxPackage"
 powershell -command "Get-AppxPackage Microsoft.549981C3F5F10 | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.BingWeather* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.BingSports* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.ZuneVideo* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.Office.OneNote* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.ZuneMusic* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.SkypeApp* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.MicrosoftSolitaireCollection* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.MicrosoftStickyNotes* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.BingNews* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.MicrosoftEdge* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.WindowsAlarms* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.WindowsFeedbackHub* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.WindowsSoundRecorder* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.Windows.Calendar* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.ToDo* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.Office.Word* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.Office.Excel* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.Office.PowerPoint* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.Office.Outlook* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.MixedReality.Portal* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.MicrosoftNews* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.GetHelp* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.MSPaint* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.Office.* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.YourPhone* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.MicrosoftPrinttoPDF* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.SkyDrive* | Remove-AppxPackage"
 taskkill /f /im OneDrive.exe
 %SystemRoot%\System32\OneDriveSetup.exe /uninstall
 %SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall
@@ -33,12 +60,22 @@ winget install -e --id KDE.Krita
 winget install -e --id Parsec.Parsec
 winget install -e --id MoonlightGameStreamingProject.Moonlight
 winget install -e --id LizardByte.Sunshine
+winget install -e --id Valve.Steam
+winget install -e --id EpicGames.EpicGamesLauncher
+winget install -e --id HeroicGamesLauncher.HeroicGamesLauncher
+winget install -e --id M2Team.NanaZip
+winget install -e --id Microsoft.WindowsTerminal
+winget install -e --id yt-dlp.yt-dlp
+winget install -e --id Starship.Starship
+winget install -e --id SomePythonThings.WingetUIStore
 
 echo Choco
 powershell -command "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))"
-choco install mpv.install winaero-tweaker.install vcredist2005 vcredist2008 vcredist2010  vcredist2012 msvisualcplusplus2012-redist vcredist2013 vcredist2017 vcredist140 vcredist-all adoptopenjdk8openj9jre adoptopenjdk11openj9jre directx netfx-4.8.1 -y
+choco install chocolateygui mpv.install winaero-tweaker.install qownnotes vcredist2005 vcredist2008 vcredist2010  vcredist2012 msvisualcplusplus2012-redist vcredist2013 vcredist2017 vcredist140 vcredist-all adoptopenjdk8openj9jre adoptopenjdk11openj9jre directx netfx-4.8.1 -y
 echo Wsl
 wsl --install
+winget install -e --id whitewaterfoundry.fedora-remix-for-wsl
+
 echo Tweaks
 echo Disabling Web Search and Cortana
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v "AllowCortana" /t REG_DWORD /d "0" /f> nul
