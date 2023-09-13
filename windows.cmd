@@ -68,6 +68,7 @@ winget install -e --id Microsoft.WindowsTerminal
 winget install -e --id yt-dlp.yt-dlp
 winget install -e --id Starship.Starship
 winget install -e --id SomePythonThings.WingetUIStore
+winget install --id=Audacious.MediaPlayer  -e
 
 echo Choco
 powershell -command "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))"
