@@ -40,7 +40,6 @@ taskkill /f /im OneDrive.exe
 echo Winget
 winget install -e --id Mozilla.Firefox
 winget install -e --id Discord.Discord
-winget install -e --id AIMP.AIMP
 winget install -e --id Nextcloud.NextcloudDesktop
 winget install -e --id Microsoft.VisualStudioCode
 winget install -e --id VideoLAN.VLC
@@ -69,13 +68,14 @@ winget install -e --id yt-dlp.yt-dlp
 winget install -e --id Starship.Starship
 winget install -e --id SomePythonThings.WingetUIStore
 winget install --id=Audacious.MediaPlayer  -e
+winget install --id=martinrotter.RSSGuard  -e
 
 echo Choco
 powershell -command "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))"
 choco install chocolateygui mpv.install winaero-tweaker.install qownnotes vcredist2005 vcredist2008 vcredist2010  vcredist2012 msvisualcplusplus2012-redist vcredist2013 vcredist2017 vcredist140 vcredist-all adoptopenjdk8openj9jre adoptopenjdk11openj9jre directx netfx-4.8.1 -y
 echo Wsl
 wsl --install
-winget install -e --id whitewaterfoundry.fedora-remix-for-wsl
+
 
 echo Tweaks
 echo Disabling Web Search and Cortana
