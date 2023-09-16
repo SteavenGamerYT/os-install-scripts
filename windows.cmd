@@ -50,18 +50,10 @@ winget install -e --id valinet.ExplorerPatcher
 winget install -e --id qBittorrent.qBittorrent
 winget install -e --id Unity.UnityHub
 winget install -e --id Microsoft.VisualStudio.2022.Community
-winget install -e --id Mojang.MinecraftLauncher
-winget install -e --id PrismLauncher.PrismLauncher
 winget install -e --id OBSProject.OBSStudio
 winget install -e --id KDE.Kdenlive
 winget install -e --id GIMP.GIMP.Nightly
 winget install -e --id KDE.Krita
-winget install -e --id Parsec.Parsec
-winget install -e --id MoonlightGameStreamingProject.Moonlight
-winget install -e --id LizardByte.Sunshine
-winget install -e --id Valve.Steam
-winget install -e --id EpicGames.EpicGamesLauncher
-winget install -e --id HeroicGamesLauncher.HeroicGamesLauncher
 winget install -e --id M2Team.NanaZip
 winget install -e --id Microsoft.WindowsTerminal
 winget install -e --id yt-dlp.yt-dlp
@@ -69,6 +61,18 @@ winget install -e --id Starship.Starship
 winget install -e --id SomePythonThings.WingetUIStore
 winget install --id=Audacious.MediaPlayer  -e
 winget install --id=martinrotter.RSSGuard  -e
+
+# Games
+winget install -e --id Mojang.MinecraftLauncher
+winget install -e --id PrismLauncher.PrismLauncher
+winget install -e --id Valve.Steam
+winget install -e --id EpicGames.EpicGamesLauncher
+winget install -e --id HeroicGamesLauncher.HeroicGamesLauncher
+winget install -e --id Ubisoft.Connect
+winget install -e --id ElectronicArts.EADesktop
+winget install -e --id Parsec.Parsec
+winget install -e --id MoonlightGameStreamingProject.Moonlight
+winget install -e --id LizardByte.Sunshine
 
 echo Choco
 powershell -command "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))"
