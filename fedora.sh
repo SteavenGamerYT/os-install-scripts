@@ -70,7 +70,7 @@ sudo flatpak override --filesystem=xdg-config/qt5ct:ro
 sudo flatpak override --filesystem=xdg-config/qt6ct:ro
 sudo flatpak override --filesystem=xdg-config/Kvantum:ro
 sudo flatpak override --filesystem=xdg-config/fontconfig:ro
-sudo flatpak override --filesystem=xdg-config/MangoHud:ro
+sudo flatpak override --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
 
 # Firewall
 sudo dnf remove firewalld* -y
