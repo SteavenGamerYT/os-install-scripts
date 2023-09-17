@@ -22,7 +22,7 @@ sudo sed -i 's/\(HOOKS=.*filesystems\) \(fsck.*\)/\1 resume \2/' /etc/mkinitcpio
 sudo mkinitcpio -P
 
 # Packages
-yay -Syu --noconfirm --needed pipewire lib32-pipewire wireplumber pipewire-audio pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire-jack gnome-shell gnome-session gnome-control-center gdm gnome-tweaks xdg-desktop-portal xdg-desktop-portal-gnome gnome-keyrring gnome-terminal adwaita-qt5-git adwaita-qt6-git qt5ct qt6ct adw-gtk-theme flatpak snapd cups foomatic-db-engine foomatic-db foomatic-db-ppds foomatic-db-nonfree foomatic-db-nonfree-ppds gutenprint foomatic-db-gutenprint-ppds simple-scan hplip hpoj hpuld hplip-plugin epson-inkjet-printer-escpr2 epson-inkjet-printer-escpr2 epson-inkjet-printer-201601w distrobox podman yt-dlp zsh zsh-syntax-highlighting autojump zsh-autosuggestions neofetch xclip lolcat git trash-cli nextcloud-client openssh hplip hplip-gui ufw nano iio-sensor-proxy dconf ttf-roboto ttf-roboto-mono ttf-ubuntu-font-family noto-fonts-cjk noto-fonts-emoji noto-fonts xdg-user-dirs nautilus power-profiles-daemon starship shell-color-scripts ttf-meslo-nerd-font-powerlevel10k ttf-croscore ttf-fira-code ttf-firacode-nerd ttf-hack ttf-meslo ttf-meslo-nerd terminus-font ttf-ubuntu-mono-nerd gstreamer gst-libav gst-plugins-bad  gst-plugins-base gst-plugins-good  gst-plugins-ugly gst-plugins-ugly libde265 gst-plugin-openh264 nautilus-checksums nautilus-code nautilus-columns
+yay -Syu --noconfirm --needed pipewire lib32-pipewire wireplumber pipewire-audio pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire-jack gnome-shell gnome-session gnome-control-center gdm gnome-tweaks xdg-desktop-portal xdg-desktop-portal-gnome gnome-keyrring gnome-terminal adwaita-qt5-git adwaita-qt6-git qt5ct qt6ct adw-gtk-theme flatpak snapd cups foomatic-db-engine foomatic-db foomatic-db-ppds foomatic-db-nonfree foomatic-db-nonfree-ppds gutenprint foomatic-db-gutenprint-ppds simple-scan hplip hpoj hpuld hplip-plugin epson-inkjet-printer-escpr2 epson-inkjet-printer-escpr2 epson-inkjet-printer-201601w distrobox podman yt-dlp zsh zsh-syntax-highlighting autojump zsh-autosuggestions neofetch xclip lolcat git trash-cli nextcloud-client openssh hplip hplip-gui ufw nano iio-sensor-proxy dconf ttf-roboto ttf-roboto-mono ttf-ubuntu-font-family noto-fonts-cjk noto-fonts-emoji noto-fonts xdg-user-dirs nautilus power-profiles-daemon starship shell-color-scripts ttf-meslo-nerd-font-powerlevel10k ttf-croscore ttf-fira-code ttf-firacode-nerd ttf-hack ttf-meslo ttf-meslo-nerd terminus-font ttf-ubuntu-mono-nerd gstreamer gst-libav gst-plugins-bad  gst-plugins-base gst-plugins-good  gst-plugins-ugly gst-plugins-ugly libde265 gst-plugin-openh264 nautilus-checksums nautilus-code nautilus-columns webcord
 yay -Syu --noconfirm --needed ttf-ms-win11-auto
 
 # Flathub
@@ -47,7 +47,7 @@ sudo tee /etc/udev/rules.d/85-sunshine.rules
 # Add user to some groups 
 sudo usermod -a -G uucp,lp $USER
 # Flatpak and snaps
-flatpak install -y flathub org.libreoffice.LibreOffice com.github.tchx84.Flatseal org.kde.krita org.mozilla.firefox com.brave.Browser  org.mozilla.Thunderbird org.gnome.Loupe org.freedesktop.Platform.VulkanLayer.OBSVkCapture com.obsproject.Studio.Plugin.OBSVkCapture com.obsproject.Studio com.discordapp.Discord com.ktechpit.whatsie  com.visualstudio.code im.riot.Riot io.github.shiftey.Desktop  io.gitlab.news_flash.NewsFlash org.atheme.audacious org.gnome.gitlab.cheywood.Iotas org.kde.kdenlive org.onlyoffice.desktopeditors org.qbittorrent.qBittorrent org.telegram.desktop org.videolan.VLC org.gnome.Calculator org.gnome.Calendar org.gnome.Characters org.gnome.Cheese cc.arduino.IDE2 com.mattjakeman.ExtensionManager io.github.celluloid_player.Celluloid de.haeckerfelix.Shortwave io.github.seadve.Mousai org.gustavoperedo.FontDownloader com.github.huluti.Curtail org.gnome.gitlab.YaLTeR.Identity com.rafaelmardojai.Blanket fr.romainvigier.MetadataCleaner com.unity.UnityHub org.nickvision.tagger org.nickvision.tubeconverter io.github.Bavarder.Bavarder org.gnome.SimpleScan org.gnome.Evince com.notepadqq.Notepadqq org.gnome.baobab org.gnome.font-viewer
+flatpak install -y flathub org.libreoffice.LibreOffice com.github.tchx84.Flatseal org.kde.krita org.mozilla.firefox com.brave.Browser  org.mozilla.Thunderbird org.gnome.Loupe org.freedesktop.Platform.VulkanLayer.OBSVkCapture com.obsproject.Studio.Plugin.OBSVkCapture com.obsproject.Studio com.ktechpit.whatsie com.visualstudio.code im.riot.Riot io.github.shiftey.Desktop  io.gitlab.news_flash.NewsFlash org.atheme.audacious org.gnome.gitlab.cheywood.Iotas org.kde.kdenlive org.onlyoffice.desktopeditors org.qbittorrent.qBittorrent org.telegram.desktop org.videolan.VLC org.gnome.Calculator org.gnome.Calendar org.gnome.Characters org.gnome.Cheese cc.arduino.IDE2 com.mattjakeman.ExtensionManager io.github.celluloid_player.Celluloid de.haeckerfelix.Shortwave io.github.seadve.Mousai org.gustavoperedo.FontDownloader com.github.huluti.Curtail org.gnome.gitlab.YaLTeR.Identity com.rafaelmardojai.Blanket fr.romainvigier.MetadataCleaner com.unity.UnityHub org.nickvision.tagger org.nickvision.tubeconverter io.github.Bavarder.Bavarder org.gnome.SimpleScan org.gnome.Evince com.notepadqq.Notepadqq org.gnome.baobab org.gnome.font-viewer
 flatpak install -y org.libretro.RetroArch net.rpcs3.RPCS3 org.ppsspp.PPSSPP org.duckstation.DuckStation org.citra_emu.citra net.kuribo64.melonDS app.xemu.xemu net.brinkervii.grapejuice com.moonlight_stream.Moonlight net.pcsx2.PCSX2 com.mojang.Minecraft io.mrarm.mcpelauncher com.parsecgaming.parsec info.cemu.Cemu org.supertuxproject.SuperTux io.itch.itch dev.lizardbyte.app.Sunshine com.vysp3r.ProtonPlus com.heroicgameslauncher.hgl com.valvesoftware.Steam runtime/org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/21.08 runtime/org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/22.08 com.github.Matoking.protontricks net.lutris.Lutris org.DolphinEmu.dolphin-emu org.prismlauncher.PrismLauncher io.gitlab.jstest_gtk.jstest_gtk org.yuzu_emu.yuzu
 flatpak install -y flathub-beta org.gimp.GIMP
 sudo snap install yt-dlp
@@ -62,6 +62,8 @@ sudo flatpak override --filesystem=xdg-config/qt6ct:ro
 sudo flatpak override --filesystem=xdg-config/Kvantum:ro
 sudo flatpak override --filesystem=xdg-config/fontconfig:ro
 sudo flatpak override --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
+sudo flatpak override --socket=wayland org.mozilla.firefox
+sudo flatpak override --env MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
 sudo ufw allow ssh
 sudo ufw enable 
 sudo mkdir -p /etc/dconf/profile
@@ -75,6 +77,8 @@ echo "/org/gnome/mutter/experimental-features" | sudo tee -a /etc/dconf/db/locks
 sudo dconf update
 gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
+echo "--enable-features=WaylandWindowDecorations" | tee -a ~/.config/electron25-flags.conf
+echo "--ozone-platform-hint=auto" | tee -a ~/.config/electron25-flags.conf
 
 # GrapheneOS's ssh limits
 # caps the system usage of sshd
