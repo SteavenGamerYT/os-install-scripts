@@ -6,7 +6,7 @@ Tons of pepole reported that it does install tons of things without user confira
 To this pepole i say, ITS MY OS SETUP, NO ONE SHOULD RUN IT, JUST COPY FROM THE SH OR CMD WHAT YOU NEED
 
 
-What Does my script really do?
+## What Does my script really do?
 
 
 On ubuntu and fedora, It removes everything that is preinstalled as debs and rpms and installs everything i use from flatpak + it makes your system secure by installing Kicksecure patchs
