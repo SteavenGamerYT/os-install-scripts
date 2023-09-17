@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=Arduino IDE v2
+GenericName=Arduino IDE v2
+Comment=Open-source electronics prototyping platform
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=arduino-ide --file-forwarding --socket=wayland cc.arduino.IDE2 --enable-features=WaylandWindowDecorations --ozone-platform-hint=auto @@u %U @@
+Icon=cc.arduino.IDE2
+Terminal=false
+MimeType=text/x-arduino;
+Categories=Development;IDE;Electronics;
+Keywords=embedded electronics;avr;microcontroller;
+StartupWMClass=Arduino IDE
+X-Flatpak=cc.arduino.IDE2
