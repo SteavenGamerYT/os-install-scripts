@@ -45,6 +45,9 @@ echo "export QT_QPA_PLATFORMTHEME=qt5ct" | sudo tee -a /etc/environment
 echo "SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", GROUP="plugdev", MODE="0666"" | sudo tee -a /etc/udev/rules.d/99-arduino.rules
 echo 'KERNEL=="uinput", SUBSYSTEM=="misc", OPTIONS+="static_node=uinput", TAG+="uaccess"' | \
 sudo tee /etc/udev/rules.d/85-sunshine.rules
+echo 'SUBSYSTEM=="block", ENV{ID_FS_TYPE}=="ntfs", ENV{ID_FS_TYPE}="ntfs3"' | sudo tee -a /etc/udev/rules.d/ntfs3_by_default.rules
+echo "[defaults]" | sudo tee -a /etc/udisks2/mount_options.conf
+echo "ntfs_defaults=uid=1000,gid=1000,rw,user,exec,umask=000" | sudo tee -a /etc/udisks2/mount_options.conf
 
 # Add user to some groups 
 sudo usermod -a -G uucp,lp $USER
