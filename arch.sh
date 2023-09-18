@@ -66,6 +66,8 @@ sudo flatpak override --filesystem=xdg-config/fontconfig:ro
 sudo flatpak override --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
 sudo flatpak override --socket=wayland org.mozilla.firefox
 sudo flatpak override --env MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
+sudo flatpak override --socket=wayland org.kde.krita
+sudo flatpak override --env QT_QPA_PLATFORM=wayland org.kde.krita
 sudo ufw allow ssh
 sudo ufw enable 
 sudo mkdir -p /etc/dconf/profile
