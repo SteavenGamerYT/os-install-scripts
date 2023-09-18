@@ -83,7 +83,8 @@ gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,m
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 echo "--enable-features=WaylandWindowDecorations" | tee -a ~/.config/electron25-flags.conf
 echo "--ozone-platform-hint=auto" | tee -a ~/.config/electron25-flags.conf
-
+# Enable Kicksecure CPU mitigations + Kicksecure's CPU distrust script + Kicksecure's IOMMU patch (limits DMA)
+find /boot/loader/entries -type f ! -name "*fallback*" -exec grep -q 'options' {} \; -exec  sudo sed -i "s/options.*/& spectre_v2=on spec_store_bypass_disable=on l1tf=full,force mds=full,nosmt tsx=off tsx_async_abort=full,nosmt kvm.nx_huge_pages=force nosmt=force l1d_flush=on mmio_stale_data=full,nosmt random.trust_cpu=off intel_iommu=on amd_iommu=on efi=disable_early_pci_dma iommu.passthrough=0 iommu.strict=1/" {} +
 # GrapheneOS's ssh limits
 # caps the system usage of sshd
 sudo mkdir -p /etc/systemd/system/sshd.service.d
