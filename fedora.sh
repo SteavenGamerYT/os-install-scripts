@@ -40,6 +40,7 @@ sudo ln -s /var/lib/snapd/snap /snap
 flatpak remote-delete fedora
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+flatpak remote-add --if-not-exists appcenter https://flatpak.elementary.io/repo.flatpakrepo
 
 # Install things I need, top is uncategorized
 flatpak install -y flathub org.libreoffice.LibreOffice com.github.tchx84.Flatseal org.kde.krita org.mozilla.firefox com.brave.Browser  org.mozilla.Thunderbird org.gnome.Loupe org.freedesktop.Platform.VulkanLayer.OBSVkCapture com.obsproject.Studio.Plugin.OBSVkCapture com.obsproject.Studio com.ktechpit.whatsie com.visualstudio.code im.riot.Riot io.github.shiftey.Desktop  io.gitlab.news_flash.NewsFlash org.atheme.audacious org.gnome.gitlab.cheywood.Iotas org.kde.kdenlive org.onlyoffice.desktopeditors org.qbittorrent.qBittorrent org.telegram.desktop org.videolan.VLC org.gnome.Calculator org.gnome.Calendar org.gnome.Characters cc.arduino.IDE2 com.mattjakeman.ExtensionManager io.github.celluloid_player.Celluloid de.haeckerfelix.Shortwave io.github.seadve.Mousai org.gustavoperedo.FontDownloader com.github.huluti.Curtail org.gnome.gitlab.YaLTeR.Identity com.rafaelmardojai.Blanket fr.romainvigier.MetadataCleaner org.nickvision.tagger org.nickvision.tubeconverter io.github.Bavarder.Bavarder org.gnome.SimpleScan org.gnome.Evince com.notepadqq.Notepadqq org.gnome.baobab org.gnome.font-viewer net.epson.epsonscan2 org.gnome.Snapshot org.godotengine.Godot
@@ -49,6 +50,9 @@ flatpak install -y org.libretro.RetroArch net.rpcs3.RPCS3 org.ppsspp.PPSSPP org.
 
 # Install Beta version of GIMP. It performs better than the stable one, plus better Wayland support.
 flatpak install -y flathub-beta org.gimp.GIMP
+
+# appcenter (Elementery os)
+flatpak install -y appcenter com.github.tenderowl.frog com.github.peteruithoven.resizer com.github.gijsgoudzwaard.image-optimizer com.github.phase1geo.annotator
 
 # dnf
 sudo dnf install distrobox podman yt-dlp zsh zsh-syntax-highlighting autojump zsh-autosuggestions neofetch xclip lolcat git trash-cli nextcloud-client openssh-server adw-gtk3-theme gnome-tweaks ostree libappstream-glib hplip hplip-gui -y
