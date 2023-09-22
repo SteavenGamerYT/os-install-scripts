@@ -48,7 +48,6 @@ winget install -e --id GitHub.GitHubDesktop
 winget install -e --id ArduinoSA.IDE.stable
 winget install -e --id valinet.ExplorerPatcher
 winget install -e --id qBittorrent.qBittorrent
-winget install -e --id Unity.UnityHub
 winget install -e --id Microsoft.VisualStudio.2022.Community
 winget install -e --id OBSProject.OBSStudio
 winget install -e --id KDE.Kdenlive
@@ -76,10 +75,9 @@ winget install -e --id LizardByte.Sunshine
 
 echo Choco
 powershell -command "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))"
-choco install chocolateygui mpv.install winaero-tweaker.install qownnotes vcredist2005 vcredist2008 vcredist2010  vcredist2012 msvisualcplusplus2012-redist vcredist2013 vcredist2017 vcredist140 vcredist-all adoptopenjdk8openj9jre adoptopenjdk11openj9jre directx netfx-4.8.1 -y
+choco install chocolateygui mpv.install winaero-tweaker.install qownnotes godot vcredist2005 vcredist2008 vcredist2010  vcredist2012 msvisualcplusplus2012-redist vcredist2013 vcredist2017 vcredist140 vcredist-all adoptopenjdk8openj9jre adoptopenjdk11openj9jre directx netfx-4.8.1 -y
 echo Wsl
 wsl --install
-
 
 echo Tweaks
 echo Disabling Web Search and Cortana
