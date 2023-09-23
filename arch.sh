@@ -22,7 +22,7 @@ sudo sed -i 's/\(HOOKS=.*filesystems\) \(fsck.*\)/\1 resume \2/' /etc/mkinitcpio
 sudo mkinitcpio -P
 
 # Packages
-yay -Syu --noconfirm --needed pipewire lib32-pipewire wireplumber pipewire-audio pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire-jack gnome-shell gnome-session gnome-control-center gdm gnome-tweaks xdg-desktop-portal xdg-desktop-portal-gnome gnome-keyring gnome-terminal adwaita-qt5-git adwaita-qt6-git qt5ct qt6ct adw-gtk-theme flatpak snapd cups foomatic-db-engine foomatic-db foomatic-db-ppds foomatic-db-nonfree foomatic-db-nonfree-ppds gutenprint foomatic-db-gutenprint-ppds hplip hpoj hpuld hplip-plugin epson-inkjet-printer-escpr2 epson-inkjet-printer-escpr2 epson-inkjet-printer-201601w distrobox podman yt-dlp zsh zsh-syntax-highlighting autojump zsh-autosuggestions neofetch xclip lolcat git trash-cli nextcloud-client openssh hplip ufw nano iio-sensor-proxy dconf ttf-roboto ttf-roboto-mono ttf-ubuntu-font-family noto-fonts-cjk noto-fonts-emoji noto-fonts xdg-user-dirs nautilus power-profiles-daemon starship shell-color-scripts ttf-meslo-nerd-font-powerlevel10k ttf-croscore ttf-fira-code ttf-firacode-nerd ttf-hack ttf-meslo ttf-meslo-nerd terminus-font ttf-ubuntu-mono-nerd gstreamer gst-libav gst-plugins-bad  gst-plugins-base gst-plugins-good  gst-plugins-ugly gst-plugins-ugly libde265 gst-plugin-openh264 nautilus-checksums nautilus-code webcord ttf-roboto-mono-nerd p7zip file-roller unrar unzip zip unace lrzip gnome-disk-utility gnome-system-monitor gparted dosfstools jfsutils f2fs-tools btrfs-progs exfatprogs ntfs-3g reiserfsprogs udftools xfsprogs nilfs-utils gpart mtools aic94xx-firmware linux-firmware-qlogic wd719x-firmware upd72020x-fw epson-printer-utility qt4-bin packagekit gnome-software-packagekit-plugin fwupd vlc-git touchegg kvantum-theme-libadwaita-git kvantum ffmpegthumbnailer gvfs-smb xf86-video-intel   vulkan-intel lib32-vulkan-intel intel-media-driver wine-gecko wine-mono winetricks wine-staging goverlay mangohud lib32-mangohud gamemode lib32-gamemode
+yay -Syu --noconfirm --needed pipewire lib32-pipewire wireplumber pipewire-audio pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire-jack gnome-shell gnome-session gnome-control-center gdm gnome-tweaks xdg-desktop-portal xdg-desktop-portal-gnome gnome-keyring gnome-terminal adwaita-qt5-git adwaita-qt6-git qt5ct qt6ct adw-gtk-theme flatpak snapd cups foomatic-db-engine foomatic-db foomatic-db-ppds foomatic-db-nonfree foomatic-db-nonfree-ppds gutenprint foomatic-db-gutenprint-ppds hplip hpoj hpuld hplip-plugin epson-inkjet-printer-escpr2 epson-inkjet-printer-escpr2 epson-inkjet-printer-201601w distrobox podman yt-dlp zsh zsh-syntax-highlighting autojump zsh-autosuggestions neofetch xclip lolcat git trash-cli nextcloud-client openssh hplip ufw nano iio-sensor-proxy dconf ttf-roboto ttf-roboto-mono ttf-ubuntu-font-family noto-fonts-cjk noto-fonts-emoji noto-fonts xdg-user-dirs nautilus power-profiles-daemon starship shell-color-scripts ttf-meslo-nerd-font-powerlevel10k ttf-croscore ttf-fira-code ttf-firacode-nerd ttf-hack ttf-meslo ttf-meslo-nerd terminus-font ttf-ubuntu-mono-nerd gstreamer gst-libav gst-plugins-bad  gst-plugins-base gst-plugins-good  gst-plugins-ugly gst-plugins-ugly libde265 gst-plugin-openh264 nautilus-checksums nautilus-code webcord ttf-roboto-mono-nerd p7zip file-roller unrar unzip zip unace lrzip gnome-disk-utility gnome-system-monitor gparted dosfstools jfsutils f2fs-tools btrfs-progs exfatprogs ntfs-3g reiserfsprogs udftools xfsprogs nilfs-utils gpart mtools aic94xx-firmware linux-firmware-qlogic wd719x-firmware upd72020x-fw epson-printer-utility qt4-bin packagekit gnome-software-packagekit-plugin fwupd vlc-git touchegg kvantum-theme-libadwaita-git kvantum ffmpegthumbnailer gvfs-smb xf86-video-intel   vulkan-intel lib32-vulkan-intel intel-media-driver wine-gecko wine-mono winetricks wine-staging goverlay mangohud lib32-mangohud gamemode lib32-gamemode qemu-desktop libvirt edk2-ovmf virt-manager dnsmasq
 yay -Syu --noconfirm --needed ttf-ms-win11-auto
 
 # Flathub
@@ -38,6 +38,14 @@ sudo systemctl enable --now cups
 sudo systemctl enable --now cups-browsed
 sudo systemctl enable --now ecbd.service
 sudo systemctl enable --now touchegg
+
+# Initialize virtualization
+sudo sed -i 's/#unix_sock_group = "libvirt"/unix_sock_group = "libvirt"/g' /etc/libvirt/libvirtd.conf
+sudo sed -i 's/#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/g' /etc/libvirt/libvirtd.conf
+sudo usermod -aG libvirt "$(whoami)"
+sudo systemctl enable libvirtd --now
+sudo virsh net-autostart default
+sudo virsh net-start default
 
 # LN
 sudo ln -s /var/lib/snapd/snap /snap
