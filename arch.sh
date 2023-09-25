@@ -82,7 +82,10 @@ sudo flatpak override --env MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
 sudo flatpak override --socket=wayland org.kde.krita
 sudo flatpak override --env QT_QPA_PLATFORM=wayland org.kde.krita
 sudo ufw allow ssh
-sudo ufw enable 
+sudo ufw allow 1714:1764/udp
+sudo ufw allow 1714:1764/tcp
+sudo ufw reload
+sudo ufw enable
 sudo mkdir -p /etc/dconf/profile
 sudo mkdir -p /etc/dconf/db/local.d
 sudo mkdir -p /etc/dconf/db/locks
