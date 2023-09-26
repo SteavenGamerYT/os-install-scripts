@@ -33,7 +33,7 @@ flatpak install -y flathub-beta org.gimp.GIMP
 flatpak install -y appcenter com.github.tenderowl.frog com.github.peteruithoven.resizer com.github.gijsgoudzwaard.image-optimizer com.github.phase1geo.annotator
 
 # APT
-sudo apt install distrobox podman yt-dlp zsh zsh-syntax-highlighting autojump zsh-autosuggestions neofetch xclip lolcat git trash-cli nautilus-nextcloud nala ssh gnome-tweaks hplip hplip-gui -y
+sudo apt install distrobox podman yt-dlp zsh zsh-syntax-highlighting autojump zsh-autosuggestions neofetch xclip lolcat git trash-cli nautilus-nextcloud nala ssh gnome-tweaks hplip hplip-gui bleachbit -y
 
 # Snaps
 sudo snap install yt-dlp
