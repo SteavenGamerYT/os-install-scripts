@@ -68,6 +68,11 @@ flatpak install -y appcenter com.github.tenderowl.frog com.github.peteruithoven.
 sudo snap install yt-dlp
 
 # Some Configs
+# Locales
+sudo sed -i 's/#ar_EG.UTF-8 UTF-8/ar_EG.UTF-8 UTF-8/' /etc/locale.gen
+sudo sed -i 's/#de_DE.UTF-8 UTF-8/de_DE.UTF-8 UTF-8/' /etc/locale.gen
+sudo locale-gen
+# flatpak
 sudo flatpak override --filesystem=~/.themes
 sudo flatpak override --filesystem=~/.icons
 sudo flatpak override --filesystem=xdg-config/gtk-3.0:ro
@@ -81,11 +86,13 @@ sudo flatpak override --socket=wayland org.mozilla.firefox
 sudo flatpak override --env MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
 sudo flatpak override --socket=wayland org.kde.krita
 sudo flatpak override --env QT_QPA_PLATFORM=wayland org.kde.krita
+# firewall
 sudo ufw allow ssh
 sudo ufw allow 1714:1764/udp
 sudo ufw allow 1714:1764/tcp
 sudo ufw reload
 sudo ufw enable
+# gnome
 sudo mkdir -p /etc/dconf/profile
 sudo mkdir -p /etc/dconf/db/local.d
 sudo mkdir -p /etc/dconf/db/locks
