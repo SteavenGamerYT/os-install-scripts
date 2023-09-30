@@ -72,6 +72,7 @@ sudo snap install yt-dlp
 sudo sed -i 's/#ar_EG.UTF-8 UTF-8/ar_EG.UTF-8 UTF-8/' /etc/locale.gen
 sudo sed -i 's/#de_DE.UTF-8 UTF-8/de_DE.UTF-8 UTF-8/' /etc/locale.gen
 sudo locale-gen
+
 # flatpak
 sudo flatpak override --filesystem=~/.themes
 sudo flatpak override --filesystem=~/.icons
@@ -86,12 +87,26 @@ sudo flatpak override --socket=wayland org.mozilla.firefox
 sudo flatpak override --env MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
 sudo flatpak override --socket=wayland org.kde.krita
 sudo flatpak override --env QT_QPA_PLATFORM=wayland org.kde.krita
+
 # firewall
 sudo ufw allow ssh
 sudo ufw allow 1714:1764/udp
 sudo ufw allow 1714:1764/tcp
+# cups
+sudo ufw allow 631
+# yuzu
+sudo ufw allow 24872
+# moonlight
+sudo ufw allow 47984/tcp
+sudo ufw allow 47989/tcp
+sudo ufw allow 48010/tcp
+sudo ufw allow 47998/udp
+sudo ufw allow 48000/udp
+sudo ufw allow 48002/udp
+sudo ufw allow 48010/udp
 sudo ufw reload
 sudo ufw enable
+
 # gnome
 sudo mkdir -p /etc/dconf/profile
 sudo mkdir -p /etc/dconf/db/local.d
@@ -107,6 +122,7 @@ gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 echo "--enable-features=WaylandWindowDecorations" | tee -a ~/.config/electron25-flags.conf
 echo "--ozone-platform-hint=auto" | tee -a ~/.config/electron25-flags.conf
 gsettings set org.gnome.shell.keybindings show-screenshot-ui "['<Shift><Super>S','Print']"
+
 # Omar-Share
 echo "# Omar-share" | sudo tee -a /etc/fstab
 echo "//192.168.1.31/omar-share2 /media/omar-share2 cifs username=omarhanykasban,password=omargamer1234,rw,nounix,iocharset=utf8,file_mode=0777,dir_mode=0777,nofail 0 0" | sudo tee -a /etc/fstab
@@ -114,6 +130,7 @@ echo "//192.168.1.31/omar-share /media/omar-share cifs username=omarhanykasban,p
 
 # Enable Kicksecure CPU mitigations + Kicksecure's CPU distrust script + Kicksecure's IOMMU patch (limits DMA)
 find /boot/loader/entries -type f ! -name "*fallback*" -exec grep -q 'options' {} \; -exec  sudo sed -i "s/options.*/& spectre_v2=on spec_store_bypass_disable=on l1tf=full,force mds=full,nosmt tsx=off tsx_async_abort=full,nosmt kvm.nx_huge_pages=force nosmt=force l1d_flush=on mmio_stale_data=full,nosmt random.trust_cpu=off intel_iommu=on amd_iommu=on efi=disable_early_pci_dma iommu.passthrough=0 iommu.strict=1/" {} +
+
 # GrapheneOS's ssh limits
 # caps the system usage of sshd
 sudo mkdir -p /etc/systemd/system/sshd.service.d

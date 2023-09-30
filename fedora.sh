@@ -80,7 +80,22 @@ sudo flatpak override --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/sh
 sudo dnf remove firewalld* -y
 sudo dnf install ufw -y
 sudo ufw allow ssh
-sudo ufw enable 
+sudo ufw allow 1714:1764/udp
+sudo ufw allow 1714:1764/tcp
+# cups
+sudo ufw allow 631
+# yuzu
+sudo ufw allow 24872
+# moonlight
+sudo ufw allow 47984/tcp
+sudo ufw allow 47989/tcp
+sudo ufw allow 48010/tcp
+sudo ufw allow 47998/udp
+sudo ufw allow 48000/udp
+sudo ufw allow 48002/udp
+sudo ufw allow 48010/udp
+sudo ufw reload
+sudo ufw enable
 
 # Enable Kicksecure CPU mitigations
 sudo curl https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/default/grub.d/40_cpu_mitigations.cfg -o /etc/grub.d/40_cpu_mitigations.cfg
