@@ -37,33 +37,45 @@ taskkill /f /im OneDrive.exe
 %SystemRoot%\System32\OneDriveSetup.exe /uninstall
 %SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall
 
-echo Winget
-winget install -e --id Mozilla.Firefox
-winget install -e --id Discord.Discord
+echo Installing Utitils
+winget install -e --id BleachBit.BleachBit
+# kde connect
+winget install -e --id 9N93MRMSXBF0
+winget install -e --id M2Team.NanaZip
+winget install -e --id Nilesoft.Shell
+winget install -e --id Microsoft.WindowsTerminal
+winget install -e --id Starship.Starship
+winget install -e --id yt-dlp.yt-dlp
+winget install -e --id SomePythonThings.WingetUIStore
+winget install -e --id Intel.IntelDriverAndSupportAssistant
+# hp smart
+winget install -e --id 9WZDNCRFHWLH
 winget install -e --id Nextcloud.NextcloudDesktop
-winget install -e --id Microsoft.VisualStudioCode
+echo Installing Apps
+winget install -e --id Mozilla.Firefox
+winget install -e --id Brave.Brave
+winget install -e --id Discord.Discord
+winget install -e --id Element.Element
+winget install -e --id Telegram.TelegramDesktop
+# whatsapp
+winget install -e --id 9NKSQGP7F2NH
+winget install -e --id Audacious.MediaPlayer
 winget install -e --id VideoLAN.VLC
 winget install -e --id CodecGuide.K-LiteCodecPack.Mega
-winget install -e --id GitHub.GitHubDesktop
-winget install -e --id ArduinoSA.IDE.stable
-winget install -e --id valinet.ExplorerPatcher
-winget install -e --id qBittorrent.qBittorrent
-winget install -e --id Microsoft.VisualStudio.2022.Community
+echo Installing Prodecitvety Apps
 winget install -e --id OBSProject.OBSStudio
 winget install -e --id KDE.Kdenlive
 winget install -e --id GIMP.GIMP.Nightly
 winget install -e --id KDE.Krita
-winget install -e --id M2Team.NanaZip
-winget install -e --id Microsoft.WindowsTerminal
-winget install -e --id yt-dlp.yt-dlp
-winget install -e --id Starship.Starship
-winget install -e --id SomePythonThings.WingetUIStore
-winget install --id=Audacious.MediaPlayer  -e
-winget install --id=martinrotter.RSSGuard  -e
+echo Installing Devpolment Tools
+winget install -e --id Microsoft.VisualStudio.2022.Community
+winget install -e --id Microsoft.VisualStudioCode
+winget install -e --id GitHub.GitHubDesktop
+winget install -e --id Canonical.Ubuntu.2204
+echo Installing more Apps
+winget install -e --id martinrotter.RSSGuard
 
-# Games
-winget install -e --id Mojang.MinecraftLauncher
-winget install -e --id PrismLauncher.PrismLauncher
+echo Installing Games
 winget install -e --id Valve.Steam
 winget install -e --id EpicGames.EpicGamesLauncher
 winget install -e --id HeroicGamesLauncher.HeroicGamesLauncher
@@ -72,6 +84,9 @@ winget install -e --id ElectronicArts.EADesktop
 winget install -e --id Parsec.Parsec
 winget install -e --id MoonlightGameStreamingProject.Moonlight
 winget install -e --id LizardByte.Sunshine
+winget install -e --id Mojang.MinecraftLauncher
+winget install -e --id PrismLauncher.PrismLauncher
+winget install -e --id LabyMediaGmbH.LabyModLauncher
 
 echo Choco
 powershell -command "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))"
