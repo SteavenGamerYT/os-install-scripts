@@ -55,7 +55,7 @@ flatpak install -y flathub-beta org.gimp.GIMP
 flatpak install -y appcenter com.github.tenderowl.frog com.github.peteruithoven.resizer com.github.gijsgoudzwaard.image-optimizer com.github.phase1geo.annotator
 
 # dnf
-sudo dnf install -y distrobox podman yt-dlp zsh zsh-syntax-highlighting autojump zsh-autosuggestions neofetch xclip lolcat git trash-cli nextcloud-client openssh-server adw-gtk3-theme gnome-tweaks ostree libappstream-glib hplip hplip-gui bleachbit baobab
+sudo dnf install -y distrobox podman yt-dlp zsh zsh-syntax-highlighting autojump zsh-autosuggestions neofetch xclip lolcat git trash-cli nextcloud-client openssh-server adw-gtk3-theme gnome-tweaks ostree libappstream-glib hplip hplip-gui bleachbit baobab google-roboto-condensed-fonts google-roboto-mono-fonts google-roboto-slab-fonts google-roboto-fonts roboto-fontface-fonts google-noto-sans-arabic-fonts google-noto-naskh-arabic-fonts google-noto-naskh-arabic-ui-fonts google-noto-naskh-arabic-ui-vf-fonts google-noto-naskh-arabic-vf-fonts google-noto-sans-arabic-vf-fonts google-noto-cjk-fonts google-noto-emoji-fonts ubuntu-fonts
 # Fedora Copr Repos for more apps
 sudo dnf copr enable gombosg/better_fonts -y
 sudo dnf install fontconfig-font-replacements fontconfig-enhanced-defaults -y
