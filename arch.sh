@@ -90,6 +90,7 @@ sudo flatpak override --env QT_QPA_PLATFORM=wayland org.kde.krita
 
 # firewall
 sudo ufw allow ssh
+# kde connect
 sudo ufw allow 1714:1764/udp
 sudo ufw allow 1714:1764/tcp
 # cups
