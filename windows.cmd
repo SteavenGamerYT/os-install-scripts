@@ -87,10 +87,13 @@ winget install -e --id LizardByte.Sunshine
 winget install -e --id Mojang.MinecraftLauncher
 winget install -e --id PrismLauncher.PrismLauncher
 winget install -e --id LabyMediaGmbH.LabyModLauncher
+winget install -e --id YuzuEmu.Yuzu.Mainline
+winget install -e --id DolphinEmulator.Dolphin
+winget install -e --id stenzek.DuckStation
 
 echo Choco
 powershell -command "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))"
-choco install chocolateygui mpv.install winaero-tweaker.install qownnotes godot filezilla vcredist2005 vcredist2008 vcredist2010  vcredist2012 msvisualcplusplus2012-redist vcredist2013 vcredist2017 vcredist140 vcredist-all adoptopenjdk8openj9jre adoptopenjdk11openj9jre directx netfx-4.8.1 -y
+choco install chocolateygui mpv.install winaero-tweaker.install qownnotes godot filezilla pcsx2 rpcs3 vcredist2005 vcredist2008 vcredist2010  vcredist2012 msvisualcplusplus2012-redist vcredist2013 vcredist2017 vcredist140 vcredist-all adoptopenjdk8openj9jre adoptopenjdk11openj9jre directx netfx-4.8.1 -y
 echo Wsl
 wsl --install
 
