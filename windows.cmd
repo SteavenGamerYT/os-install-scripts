@@ -37,6 +37,7 @@ taskkill /f /im OneDrive.exe
 %SystemRoot%\System32\OneDriveSetup.exe /uninstall
 %SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall
 
+powershell -command "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))"
 echo Installing Utitils
 winget install -e --id BleachBit.BleachBit
 # kde connect
@@ -88,11 +89,14 @@ winget install -e --id Mojang.MinecraftLauncher
 winget install -e --id PrismLauncher.PrismLauncher
 winget install -e --id LabyMediaGmbH.LabyModLauncher
 winget install -e --id YuzuEmu.Yuzu.Mainline
-winget install -e --id DolphinEmulator.Dolphin
 winget install -e --id stenzek.DuckStation
+choco install pcsx2 -y
+choco install dolphin --pre -y
+choco install rpcs3 --pre -y
+choco install cemu -y
+choco install ryujinx -y
+choco install emulationstation.install -y
 
-echo Choco
-powershell -command "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))"
 choco install chocolateygui mpv.install winaero-tweaker.install qownnotes godot filezilla pcsx2 rpcs3 vcredist2005 vcredist2008 vcredist2010  vcredist2012 msvisualcplusplus2012-redist vcredist2013 vcredist2017 vcredist140 vcredist-all adoptopenjdk8openj9jre adoptopenjdk11openj9jre directx netfx-4.8.1 -y
 echo Wsl
 wsl --install
