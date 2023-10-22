@@ -53,8 +53,7 @@ winget install -e --id Intel.IntelDriverAndSupportAssistant
 winget install -e --id 9WZDNCRFHWLH
 winget install -e --id Nextcloud.NextcloudDesktop
 echo Installing Apps
-winget install -e --id Mozilla.Firefox
-winget install -e --id Brave.Brave
+winget install -e --id EDRLab.Thorium
 winget install -e --id Discord.Discord
 winget install -e --id Element.Element
 winget install -e --id Telegram.TelegramDesktop
