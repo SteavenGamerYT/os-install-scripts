@@ -95,6 +95,7 @@ choco install dolphin --pre -y
 choco install rpcs3 --pre -y
 choco install cemu -y
 choco install ryujinx -y
+choco install retroarch -y
 choco install emulationstation.install -y
 
 choco install chocolateygui mpv.install winaero-tweaker.install qownnotes godot filezilla pcsx2 rpcs3 vcredist2005 vcredist2008 vcredist2010  vcredist2012 msvisualcplusplus2012-redist vcredist2013 vcredist2017 vcredist140 vcredist-all adoptopenjdk8openj9jre adoptopenjdk11openj9jre directx netfx-4.8.1 -y
