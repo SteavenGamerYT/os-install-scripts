@@ -38,6 +38,7 @@ powershell -command "Get-AppxPackage Microsoft.Windows.DevHome* | Remove-AppxPac
 powershell -command "Get-AppxPackage Microsoft.WindowsMaps* | Remove-AppxPackage"
 powershell -command "Get-AppxPackage Microsoft.MicrosoftOfficeHub* | Remove-AppxPackage"
 powershell -command "Get-AppxPackage MSTeams* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.ScreenSketch* | Remove-AppxPackage"
 
 taskkill /f /im OneDrive.exe
 %SystemRoot%\System32\OneDriveSetup.exe /uninstall
