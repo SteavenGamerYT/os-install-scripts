@@ -33,6 +33,12 @@ powershell -command "Get-AppxPackage Microsoft.Office.* | Remove-AppxPackage"
 powershell -command "Get-AppxPackage Microsoft.YourPhone* | Remove-AppxPackage"
 powershell -command "Get-AppxPackage Microsoft.MicrosoftPrinttoPDF* | Remove-AppxPackage"
 powershell -command "Get-AppxPackage Microsoft.SkyDrive* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Clipchamp.Clipchamp* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.Windows.DevHome* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.WindowsMaps* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage Microsoft.MicrosoftOfficeHub* | Remove-AppxPackage"
+powershell -command "Get-AppxPackage MSTeams* | Remove-AppxPackage"
+
 taskkill /f /im OneDrive.exe
 %SystemRoot%\System32\OneDriveSetup.exe /uninstall
 %SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall
