@@ -1,8 +1,10 @@
 #!/bin/sh
 
 # Debloat
-sudo apt purge libreoffice* eog network-manager-openvpn-gnome network-manager-openvpn openvpn gnome-calculator gnome-calendar gnome-characters cheese rhythmbox* remmina* transmission* shotwell* gnome-shell-extensions gnome-shell-extension-manager vim* gnome-user-docs gnome-sudoku simple-scan evince* gnome-text-editor gnome-logs  gnome-remote-desktop gnome-mahjongg gnome-font-viewer ubuntu-docs  ubuntu-report aisleriot -y
+# Remove the packages using apt and snap
+sudo apt purge -y $(cat ubuntu-deblot.txt)
 sudo snap remove snap-store
+sudo snap remove firefox
 sudo apt autoremove --purge -y
 
 # Run Updates
@@ -21,93 +23,66 @@ flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/fl
 flatpak remote-add --if-not-exists appcenter https://flatpak.elementary.io/repo.flatpakrepo
 
 # Install things I need, top is uncategorized
-# Install things I need, top is uncategorized
 FLATHUB=$(cat flathub-packages.txt)
 
 # Install the packages using flatpak
-for PACKAGE in $FLATHUB; do
-  flatpak install -y flathub $FLATHUB
-done
+flatpak install -y flathub $FLATHUB
 
 # Games
-flatpak install -y org.libretro.RetroArch net.rpcs3.RPCS3 org.ppsspp.PPSSPP org.duckstation.DuckStation org.citra_emu.citra net.kuribo64.melonDS app.xemu.xemu net.brinkervii.grapejuice com.moonlight_stream.Moonlight net.pcsx2.PCSX2 com.mojang.Minecraft io.mrarm.mcpelauncher com.parsecgaming.parsec info.cemu.Cemu org.supertuxproject.SuperTux io.itch.itch dev.lizardbyte.app.Sunshine com.vysp3r.ProtonPlus com.heroicgameslauncher.hgl com.valvesoftware.Steam runtime/org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/21.08 runtime/org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/22.08 com.github.Matoking.protontricks net.lutris.Lutris org.DolphinEmu.dolphin-emu org.prismlauncher.PrismLauncher io.gitlab.jstest_gtk.jstest_gtk org.yuzu_emu.yuzu
+# Install the packages using flatpak
+flatpak install -y flathub $(cat flathub-games.txt)
 
 # Install Beta version of GIMP. It performs better than the stable one, plus better Wayland support.
-FLATHUBBETA=$(cat flathub-beta-packages.txt)
-
 # Install the packages using flatpak
-for PACKAGE in $FLATHUBBETA; do
-  flatpak install -y flathub-beta $FLATHUBBETA
-done
+flatpak install -y flathub-beta $(cat flathub-beta-packages.txt)
 
 # appcenter (Elementery os)
-appcenter=$(cat appcenter-packages.txt)
-
 # Install the packages using flatpak
-for PACKAGE in $appcenter; do
-  flatpak install -y appcenter $appcenter
-done
+flatpak install -y appcenter $(cat appcenter-packages.txt)
 
-# APT
-sudo apt install -y distrobox podman yt-dlp zsh zsh-syntax-highlighting autojump zsh-autosuggestions neofetch xclip lolcat git trash-cli nala ssh gnome-tweaks hplip hplip-gui bleachbit baobab gnome-session adwaita-icon-theme-full
+# Install things I need using apt, top is uncategorized
+# Install the packages using apt
+sudo apt install -y $(cat ubuntu-packages.txt)
 
-# Snaps
-sudo snap install yt-dlp
-
-# Fixing Flatpak permsision Issues
-sudo flatpak override --filesystem=~/.themes
-sudo flatpak override --filesystem=~/.icons
-sudo flatpak override --filesystem=xdg-config/gtk-3.0:ro
-sudo flatpak override --filesystem=xdg-config/gtk-4.0:ro
-sudo flatpak override --filesystem=xdg-config/qt5ct:ro
-sudo flatpak override --filesystem=xdg-config/qt6ct:ro
-sudo flatpak override --filesystem=xdg-config/Kvantum:ro
-sudo flatpak override --filesystem=xdg-config/fontconfig:ro
-sudo flatpak override --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
+sudo systemctl enable --now syncthing@$(whoami)
 
 # Firewall
 sudo apt install ufw -y
-sudo ufw allow ssh
-sudo ufw allow 1714:1764/udp
-sudo ufw allow 1714:1764/tcp
-# cups
-sudo ufw allow 631
-# yuzu
-sudo ufw allow 24872
-# moonlight
-sudo ufw allow 47984/tcp
-sudo ufw allow 47989/tcp
-sudo ufw allow 48010/tcp
-sudo ufw allow 47998/udp
-sudo ufw allow 48000/udp
-sudo ufw allow 48002/udp
-sudo ufw allow 48010/udp
+sudo ufw disable
+sudo ufw allow ssh comment 'ssh'
+sudo ufw allow 1714:1764/udp comment 'kde connect'
+sudo ufw allow 1714:1764/tcp comment 'kde connect'
+sudo ufw allow 631 comment 'cups'
+sudo ufw allow 24872 comment 'suyu'
+sudo ufw allow 47984/tcp comment 'moonlight'
+sudo ufw allow 47989/tcp comment 'moonlight'
+sudo ufw allow 48010/tcp comment 'moonlight'
+sudo ufw allow 47998/udp comment 'moonlight'
+sudo ufw allow 48000/udp comment 'moonlight'
+sudo ufw allow 48002/udp comment 'moonlight'
+sudo ufw allow 48010/udp comment 'moonlight'
+sudo ufw allow 8384 comment "syncthing"
+sudo ufw allow 137/udp comment "samba"
+sudo ufw allow 138/udp comment "samba"
+sudo ufw allow 139/tcp comment "samba"
+sudo ufw allow 445/tcp comment "samba"
+sudo ufw allow 27015/tcp comment "portal 1"
+sudo ufw allow 27015/udp comment "portal 1"
+sudo ufw allow 27040/tcp comment "steam network transfer" 
+sudo ufw allow 27031/udp comment "steam client discovery"
+sudo ufw allow 27032/udp comment "steam client discovery"
+sudo ufw allow 27033/udp comment "steam client discovery"
+sudo ufw allow 27034/udp comment "steam client discovery"
+sudo ufw allow 27035/udp comment "steam client discovery"
+sudo ufw allow 27036/udp comment "steam client discovery"
 sudo ufw reload
 sudo ufw enable
 
-# Enable Kicksecure CPU mitigations
-sudo curl https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/default/grub.d/40_cpu_mitigations.cfg -o /etc/grub.d/40_cpu_mitigations.cfg
-# Kicksecure's CPU distrust script
-sudo curl https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/default/grub.d/40_distrust_cpu.cfg -o /etc/grub.d/40_distrust_cpu.cfg
-# Enable Kicksecure's IOMMU patch (limits DMA)
-sudo curl https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/default/grub.d/40_enable_iommu.cfg -o /etc/grub.d/40_enable_iommu.cfg
-
-# GrapheneOS's ssh limits
-# caps the system usage of sshd
-sudo mkdir -p /etc/systemd/system/sshd.service.d
-sudo curl https://raw.githubusercontent.com/GrapheneOS/infrastructure/main/systemd/system/sshd.service.d/local.conf -o /etc/systemd/system/sshd.service.d/local.conf
-
-# NTS instead of NTP
-# NTS is a more secured version of NTP
-sudo curl https://raw.githubusercontent.com/GrapheneOS/infrastructure/main/chrony.conf -o /etc/chrony.conf
-
-
-# Arduino
-echo "SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", GROUP="plugdev", MODE="0666"" | sudo tee -a /etc/udev/rules.d/99-arduino.rules
-sudo usermod -a -G dialout $USER
-
-# Sunshine
-echo 'KERNEL=="uinput", SUBSYSTEM=="misc", OPTIONS+="static_node=uinput", TAG+="uaccess"' | \
-sudo tee /etc/udev/rules.d/85-sunshine.rules
+# Steaven Settings
+cd ~
+git clone https://github.com/SteavenGamerYT/SteavenSettings
+cd SteavenSettings
+./install.sh
+cd ~
 
 echo "The configuration is now complete."
