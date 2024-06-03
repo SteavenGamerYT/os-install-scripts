@@ -101,7 +101,6 @@ gnome-maps
 gnome-remote-desktop
 gnome-shell-extension*
 gnome-shell-extension-background-logo
-gnome-system-monitor
 gnome-text-editorevince
 gnome-themes-extra
 gnome-tour

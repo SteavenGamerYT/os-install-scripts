@@ -34,3 +34,6 @@ google-noto-emoji-fonts
 ubuntu-fonts
 syncthing
 baobab
+gnome-software
+gnome-system-monitor
+unrar
