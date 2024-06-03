@@ -41,10 +41,8 @@ flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/fl
 flatpak remote-add --if-not-exists appcenter https://flatpak.elementary.io/repo.flatpakrepo
 
 # Install things I need, top is uncategorized
-FLATHUB=$(cat flathub-packages.txt)
-
 # Install the packages using flatpak
-flatpak install -y flathub $FLATHUB
+flatpak install -y flathub $(cat flathub-packages.txt)
 
 # Games
 # Install the packages using flatpak
