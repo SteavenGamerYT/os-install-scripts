@@ -33,7 +33,6 @@ fonts-noto-color-emoji
 fonts-noto-core
 fonts-noto-mono
 fonts-noto-ui-core
-fonts-noto-ui-extra
 fonts-noto-unhinted
 virt-manager
 curl
