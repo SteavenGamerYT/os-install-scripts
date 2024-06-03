@@ -10,4 +10,4 @@ To this pepole i say, ITS MY OS SETUP, NO ONE SHOULD RUN IT, JUST COPY FROM THE 
 
 
 On ubuntu and fedora, It removes everything that is preinstalled as debs and rpms and installs everything i use from flatpak + it makes your system secure by installing Kicksecure patchs and it installs my custom user settings from SteavenSettings repo
-[SteavenGamerYT/SteavenSettings](https://github.com/SteavenGamerYT/SteavenSettings) 
+[SteavenSettings](https://github.com/SteavenGamerYT/SteavenSettings) 
