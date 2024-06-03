@@ -39,3 +39,4 @@ curl
 libfuse2
 gnome-software
 flatpak
+ubuntu-restricted-extras
