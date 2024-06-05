@@ -7,7 +7,6 @@ org.gnome.SimpleScan
 org.gnome.Evince
 org.gnome.Snapshot
 org.gnome.font-viewer
-org.gnome.Epiphany 
 org.gnome.TextEditor
 org.mozilla.firefox
 org.mozilla.Thunderbird
@@ -41,7 +40,6 @@ fr.romainvigier.MetadataCleaner
 org.nickvision.tagger
 org.nickvision.tubeconverter
 io.github.Bavarder.Bavarder
-com.notepadqq.Notepadqq
 net.epson.epsonscan2
 org.godotengine.Godot
 com.unity.UnityHub
