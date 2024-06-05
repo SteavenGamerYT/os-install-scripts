@@ -32,8 +32,6 @@ sudo flatpak remote-add --if-not-exists appcenter https://flatpak.elementary.io/
 
 # Systemctl
 sudo systemctl enable gdm
-sudo systemctl enable --now snapd.socket
-sudo systemctl enable --now snapd.apparmor
 sudo systemctl enable --now cups
 sudo systemctl enable --now cups-browsed
 sudo systemctl enable --now ecbd.service

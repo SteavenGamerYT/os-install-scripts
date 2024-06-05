@@ -1,0 +1,17 @@
+cantarell-fonts
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+ttf-roboto
+ttf-roboto-mono
+ttf-roboto-mono-nerd
+intel-undervolt
+git
+pipewire
+lib32-pipewire
+wireplumber
+pipewire-audio
+pipewire-alsa
+pipewire-pulse
+pipewire-jack
+lib32-pipewire-jack
