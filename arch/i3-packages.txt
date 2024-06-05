@@ -30,3 +30,5 @@ pamixer
 xdotool
 xorg-xinput
 xorg-xlsclients
+xidlehook
+betterlockscreen
