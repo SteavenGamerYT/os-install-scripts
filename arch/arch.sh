@@ -45,47 +45,29 @@ sudo systemctl enable libvirtd --now
 sudo virsh net-autostart default
 sudo virsh net-start default
 
-# LN
-sudo ln -s /var/lib/snapd/snap /snap
-
-# echo
-echo "export QT_QPA_PLATFORMTHEME=qt5ct" | sudo tee -a /etc/environment
-echo "SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", GROUP="plugdev", MODE="0666"" | sudo tee -a /etc/udev/rules.d/99-arduino.rules
-echo 'KERNEL=="uinput", SUBSYSTEM=="misc", OPTIONS+="static_node=uinput", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/85-sunshine.rules
-echo 'SUBSYSTEM=="block", ENV{ID_FS_TYPE}=="ntfs", ENV{ID_FS_TYPE}="ntfs3"' | sudo tee -a /etc/udev/rules.d/ntfs3_by_default.rules
-echo "[defaults]" | sudo tee -a /etc/udisks2/mount_options.conf
-echo "ntfs_defaults=uid=1000,gid=1000,rw,user,exec,umask=000" | sudo tee -a /etc/udisks2/mount_options.conf
 
 # Add user to some groups 
 sudo usermod -a -G uucp,lp $USER
-# Flatpak and snaps
-# Install things I need, top is uncategorized
-FLATHUB=$(cat flathub-packages.txt)
 
+# Install things I need, top is uncategorized
 # Install the packages using flatpak
-for PACKAGE in $FLATHUB; do
-  flatpak install -y flathub $FLATHUB
-done
+flatpak install -y flathub $(cat flathub-packages.txt)
 
 # Games
-flatpak install -y org.libretro.RetroArch net.rpcs3.RPCS3 org.ppsspp.PPSSPP org.duckstation.DuckStation org.citra_emu.citra net.kuribo64.melonDS app.xemu.xemu net.brinkervii.grapejuice com.moonlight_stream.Moonlight net.pcsx2.PCSX2 com.mojang.Minecraft io.mrarm.mcpelauncher com.parsecgaming.parsec info.cemu.Cemu org.supertuxproject.SuperTux io.itch.itch dev.lizardbyte.app.Sunshine com.vysp3r.ProtonPlus com.heroicgameslauncher.hgl com.valvesoftware.Steam runtime/org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/21.08 runtime/org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/22.08 com.github.Matoking.protontricks net.lutris.Lutris org.DolphinEmu.dolphin-emu org.prismlauncher.PrismLauncher io.gitlab.jstest_gtk.jstest_gtk org.yuzu_emu.yuzu
+# Install the packages using flatpak
+flatpak install -y flathub $(cat flathub-games.txt)
 
 # Install Beta version of GIMP. It performs better than the stable one, plus better Wayland support.
-FLATHUBBETA=$(cat flathub-beta-packages.txt)
-
 # Install the packages using flatpak
-for PACKAGE in $FLATHUBBETA; do
-  flatpak install -y flathub-beta $FLATHUBBETA
-done
+flatpak install -y flathub-beta $(cat flathub-beta-packages.txt)
 
 # appcenter (Elementery os)
-appcenter=$(cat appcenter-packages.txt)
-
 # Install the packages using flatpak
-for PACKAGE in $appcenter; do
-  flatpak install -y appcenter $appcenter
-done
-sudo snap install yt-dlp
+flatpak install -y appcenter $(cat appcenter-packages.txt)
+
+# Install things I need using dnf, top is uncategorized
+# Install the packages using dnf
+sudo dnf install -y $(cat fedora-packages.txt)
 
 # Some Configs
 # Locales
@@ -93,38 +75,34 @@ sudo sed -i 's/#ar_EG.UTF-8 UTF-8/ar_EG.UTF-8 UTF-8/' /etc/locale.gen
 sudo sed -i 's/#de_DE.UTF-8 UTF-8/de_DE.UTF-8 UTF-8/' /etc/locale.gen
 sudo locale-gen
 
-# flatpak
-sudo flatpak override --filesystem=~/.themes
-sudo flatpak override --filesystem=~/.icons
-sudo flatpak override --filesystem=xdg-config/gtk-3.0:ro
-sudo flatpak override --filesystem=xdg-config/gtk-4.0:ro
-sudo flatpak override --filesystem=xdg-config/qt5ct:ro
-sudo flatpak override --filesystem=xdg-config/qt6ct:ro
-sudo flatpak override --filesystem=xdg-config/Kvantum:ro
-sudo flatpak override --filesystem=xdg-config/fontconfig:ro
-sudo flatpak override --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
-sudo flatpak override --socket=wayland org.mozilla.firefox
-sudo flatpak override --env MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
-sudo flatpak override --socket=wayland org.kde.krita
-sudo flatpak override --env QT_QPA_PLATFORM=wayland org.kde.krita
-
-# firewall
-sudo ufw allow ssh
-# kde connect
-sudo ufw allow 1714:1764/udp
-sudo ufw allow 1714:1764/tcp
-# cups
-sudo ufw allow 631
-# yuzu
-sudo ufw allow 24872
-# moonlight
-sudo ufw allow 47984/tcp
-sudo ufw allow 47989/tcp
-sudo ufw allow 48010/tcp
-sudo ufw allow 47998/udp
-sudo ufw allow 48000/udp
-sudo ufw allow 48002/udp
-sudo ufw allow 48010/udp
+# Firewall
+sudo ufw disable
+sudo ufw allow ssh comment 'ssh'
+sudo ufw allow 1714:1764/udp comment 'kde connect'
+sudo ufw allow 1714:1764/tcp comment 'kde connect'
+sudo ufw allow 631 comment 'cups'
+sudo ufw allow 24872 comment 'suyu'
+sudo ufw allow 47984/tcp comment 'moonlight'
+sudo ufw allow 47989/tcp comment 'moonlight'
+sudo ufw allow 48010/tcp comment 'moonlight'
+sudo ufw allow 47998/udp comment 'moonlight'
+sudo ufw allow 48000/udp comment 'moonlight'
+sudo ufw allow 48002/udp comment 'moonlight'
+sudo ufw allow 48010/udp comment 'moonlight'
+sudo ufw allow 8384 comment "syncthing"
+sudo ufw allow 137/udp comment "samba"
+sudo ufw allow 138/udp comment "samba"
+sudo ufw allow 139/tcp comment "samba"
+sudo ufw allow 445/tcp comment "samba"
+sudo ufw allow 27015/tcp comment "portal 1"
+sudo ufw allow 27015/udp comment "portal 1"
+sudo ufw allow 27040/tcp comment "steam network transfer" 
+sudo ufw allow 27031/udp comment "steam client discovery"
+sudo ufw allow 27032/udp comment "steam client discovery"
+sudo ufw allow 27033/udp comment "steam client discovery"
+sudo ufw allow 27034/udp comment "steam client discovery"
+sudo ufw allow 27035/udp comment "steam client discovery"
+sudo ufw allow 27036/udp comment "steam client discovery"
 sudo ufw reload
 sudo ufw enable
 
