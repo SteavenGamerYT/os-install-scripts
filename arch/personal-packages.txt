@@ -69,3 +69,4 @@ file-roller
 zip
 unace
 lrzip
+kdeconnect
