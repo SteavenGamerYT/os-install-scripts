@@ -2,3 +2,4 @@ xf86-video-intel
 vulkan-intel
 lib32-vulkan-intel
 intel-media-driver
+zenergy-dkms-git

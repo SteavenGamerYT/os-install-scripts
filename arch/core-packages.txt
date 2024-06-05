@@ -42,4 +42,4 @@ linux-firmware-qlogic
 wd719x-firmware
 upd72020x-fw
 flatpak
-openssh-server
+openssh

@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# User
+useradd -m -g users -G wheel,storage,power -s /bin/zsh omarhanykasban
+
 # AUR HELPER PLS PLS PLS STOP USING PACMAN USE YAY
 sudo pacman -Syu --noconfirm --needed git base-devel
 git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin/ && makepkg -si --noconfirm
@@ -20,7 +23,6 @@ diskuuid=$(eval $(lsblk -oMOUNTPOINT,UUID  -P -M | grep 'MOUNTPOINT="/"'); echo 
 find /boot/loader/entries -type f ! -name "*fallback*" -exec grep -q 'options' {} \; -exec  sudo sed -i "s/options.*/& resume=UUID=$(echo $diskuuid)/" {} +
 sudo sed -i 's/\(HOOKS=.*filesystems\) \(fsck.*\)/\1 resume \2/' /etc/mkinitcpio.conf
 sudo mkinitcpio -P
-
 # Packages
 yay -Syu --noconfirm --needed $(cat core-packages.txt)
 yay -Syu --noconfirm --needed $(cat printer-packages.txt)
@@ -30,7 +32,7 @@ yay -Syu --noconfirm --needed ttf-ms-win11-auto
 
 # Flathub
 sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-sudo flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepove
+sudo flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 sudo flatpak remote-add --if-not-exists appcenter https://flatpak.elementary.io/repo.flatpakrepo
 
 # Systemctl
@@ -69,8 +71,12 @@ flatpak install -y appcenter $(cat ../appcenter-packages.txt)
 # Some Configs
 # Locales
 sudo sed -i 's/#ar_EG.UTF-8 UTF-8/ar_EG.UTF-8 UTF-8/' /etc/locale.gen
-sudo sed -i 's/#de_DE.UTF-8 UTF-8/de_DE.UTF-8 UTF-8/' /etc/locale.gen
+sudo sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 sudo locale-gen
+
+# Time
+ln -sf /usr/share/zoneinfo/Africa/Cairo /etc/localtime
+hwclock --systohc
 
 # Firewall
 sudo ufw disable
