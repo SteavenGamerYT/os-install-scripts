@@ -34,7 +34,6 @@ gst-plugins-base
 gst-plugins-good
 gst-plugins-ugly
 libde265
-gst-plugin-openh264
 ufw
 hunspell-ar
 fwupd
