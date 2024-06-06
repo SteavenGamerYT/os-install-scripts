@@ -39,6 +39,7 @@ sudo flatpak remote-add --if-not-exists appcenter https://flatpak.elementary.io/
 sudo systemctl enable sddm
 sudo systemctl enable --now cups
 sudo systemctl enable --now cups-browsed
+sudo systemctl enable --now avahi-daemon
 
 # Initialize virtualization
 sudo sed -i 's/#unix_sock_group = "libvirt"/unix_sock_group = "libvirt"/g' /etc/libvirt/libvirtd.conf
@@ -106,6 +107,14 @@ sudo ufw allow 27033/udp comment "steam client discovery"
 sudo ufw allow 27034/udp comment "steam client discovery"
 sudo ufw allow 27035/udp comment "steam client discovery"
 sudo ufw allow 27036/udp comment "steam client discovery"
+sudo ufw allow 5353/udp comment "obs ndi plugin"
+sudo ufw allow 5959:5969/tcp comment "obs ndi plugin"
+sudo ufw allow 5959:5969/udp comment "obs ndi plugin"
+sudo ufw allow 6960:6970/tcp comment "obs ndi plugin"
+sudo ufw allow 6960:6970/udp comment "obs ndi plugin"
+sudo ufw allow 7960:7970/tcp comment "obs ndi plugin"
+sudo ufw allow 7960:7970/udp comment "obs ndi plugin"
+sudo ufw allow 5960/tcp comment "obs ndi plugin"
 sudo ufw reload
 sudo ufw enable
 

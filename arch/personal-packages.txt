@@ -82,3 +82,4 @@ freedownloadmanager
 gdu
 downgrade
 hyfetch
+avahi-daemon
