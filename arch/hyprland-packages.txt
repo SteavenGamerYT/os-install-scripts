@@ -31,3 +31,4 @@ nemo
 nemo-fileroller
 pamixer
 xorg-xlsclients
+nwg-look
