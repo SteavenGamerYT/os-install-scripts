@@ -21,3 +21,6 @@ org.DolphinEmu.dolphin-emu
 runtime/org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/23.08
 runtime/org.freedesktop.Platform.VulkanLayer.gamescope/x86_64/23.08
 com.valvesoftware.Steam
+com.mojang.Minecraft
+org.prismlauncher.PrismLauncher
+com.lunarclient.LunarClient
