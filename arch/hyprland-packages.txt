@@ -1,8 +1,11 @@
 hyprland
 hypridle
 hyprlock
+hyprpicker
+xdg-desktop-portal
 xdg-desktop-portal-hyprland
-swayidle
+xdg-desktop-portal-gtk
+swaylock
 swaync
 swaybg
 waybar

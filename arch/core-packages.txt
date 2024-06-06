@@ -43,3 +43,4 @@ wd719x-firmware
 upd72020x-fw
 flatpak
 openssh
+pamixer

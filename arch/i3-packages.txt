@@ -32,3 +32,6 @@ xorg-xinput
 xorg-xlsclients
 xidlehook
 betterlockscreen
+scrot
+flameshot
+lxappearance

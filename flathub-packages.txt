@@ -49,3 +49,6 @@ io.gitlab.theevilskeleton.Upscaler
 me.iepure.Ticketbooth
 org.gimp.GIMP
 org.qownnotes.QOwnNotes
+com.github.wwmm.easyeffects
+com.obsproject.Studio.Plugin.NDI
+com.obsproject.Studio.Plugin.OBSVkCapture
