@@ -5,7 +5,7 @@ hyprpicker
 xdg-desktop-portal
 xdg-desktop-portal-hyprland
 xdg-desktop-portal-gtk
-swaylock
+swaylock-effects
 swaync
 swaybg
 waybar
