@@ -1,4 +1,4 @@
-com.github.tenderowl.frog
-com.github.peteruithoven.resizer
 com.github.gijsgoudzwaard.image-optimizer
+com.github.peteruithoven.resizer
 com.github.phase1geo.annotator
+com.github.tenderowl.frog

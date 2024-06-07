@@ -1,0 +1,6 @@
+intel-media-driver
+lib32-vulkan-intel
+thermald
+vulkan-intel
+xf86-video-intel
+zenergy-dkms-git

@@ -1,26 +1,26 @@
-io.gitlab.jstest_gtk.jstest_gtk
-com.github.Matoking.protontricks
-com.vysp3r.ProtonPlus
-net.lutris.Lutris
-com.usebottles.bottles 
-org.ryujinx.Ryujinx
-org.duckstation.DuckStation
-net.rpcs3.RPCS3 
-page.kramo.Cartridges
-io.github.lime3ds.Lime3DS 
-org.ppsspp.PPSSPP 
 app.xemu.xemu
-dev.lizardbyte.app.Sunshine
-com.moonlight_stream.Moonlight
-net.pcsx2.PCSX2 com.heroicgameslauncher.hgl
-info.cemu.Cemu 
-net.kuribo64.melonDS io.itch.itch
-org.libretro.RetroArch
-org.prismlauncher.PrismLauncher 
-org.DolphinEmu.dolphin-emu
-runtime/org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/23.08
-runtime/org.freedesktop.Platform.VulkanLayer.gamescope/x86_64/23.08
-com.valvesoftware.Steam
-com.mojang.Minecraft
-org.prismlauncher.PrismLauncher
+com.github.Matoking.protontricks
 com.lunarclient.LunarClient
+com.mojang.Minecraft
+com.moonlight_stream.Moonlight
+com.usebottles.bottles 
+com.valvesoftware.Steam
+com.vysp3r.ProtonPlus
+dev.lizardbyte.app.Sunshine
+info.cemu.Cemu 
+io.github.lime3ds.Lime3DS 
+io.gitlab.jstest_gtk.jstest_gtk
+net.kuribo64.melonDS io.itch.itch
+net.lutris.Lutris
+net.pcsx2.PCSX2 com.heroicgameslauncher.hgl
+net.rpcs3.RPCS3 
+org.DolphinEmu.dolphin-emu
+org.duckstation.DuckStation
+org.libretro.RetroArch
+org.ppsspp.PPSSPP 
+org.prismlauncher.PrismLauncher
+org.prismlauncher.PrismLauncher 
+org.ryujinx.Ryujinx
+page.kramo.Cartridges
+runtime/org.freedesktop.Platform.VulkanLayer.gamescope/x86_64/23.08
+runtime/org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/23.08
