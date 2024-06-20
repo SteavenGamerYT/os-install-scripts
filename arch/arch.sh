@@ -40,6 +40,7 @@ sudo systemctl enable sddm
 sudo systemctl enable --now cups
 sudo systemctl enable --now cups-browsed
 sudo systemctl enable --now avahi-daemon
+sudo systemctl enable --now ecbd.service
 
 # Initialize virtualization
 sudo sed -i 's/#unix_sock_group = "libvirt"/unix_sock_group = "libvirt"/g' /etc/libvirt/libvirtd.conf
